@@ -69,10 +69,11 @@ def compress():
 
 def generate_logs(filename):
     with open("/usr/src/logs/file.log", "a") as logfile:
-        logfile.write("[+] Filename: {} Time: {}\n".format(filename, strftime("%H:%M:%S"))
+        logfile.write(
+            "[+] Filename: {} Time: {}\n".format(filename, strftime("%H:%M:%S")))
 
 
-@ app.route("/download/<filename>")
+@app.route("/download/<filename>")
 def download(filename):
     # To-do: Explain the workerbee request process
     # include docs on urllib.request.urlopen(destination)
