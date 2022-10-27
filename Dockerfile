@@ -15,7 +15,7 @@ RUN echo -e "uwsgi\nuwsgi" | adduser uwsgi
 
 RUN mkdir -p /usr/src/logs
 RUN chown uwsgi:uwsgi -R /usr/src/logs
-ADD .. /usr/src/logs
+ADD . /usr/src/logs
 
 EXPOSE 8080
 
