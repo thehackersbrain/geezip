@@ -13,6 +13,9 @@ RUN pip3 install uwsgi
 
 RUN echo -e "uwsgi\nuwsgi" | adduser uwsgi
 
+RUN mkdir -p /usr/src/logs
+ADD . /usr/src/logs
+
 EXPOSE 8080
 
 CMD ["uwsgi", "--ini", "app.ini"]

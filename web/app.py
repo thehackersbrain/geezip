@@ -4,6 +4,7 @@ import subprocess
 import gzip
 import hashlib
 import urllib
+from time import strftime
 
 
 # app configuration
@@ -62,10 +63,16 @@ def compress():
         counter += 1
 
         # return "Files or Data compressed successfully..."
+        generate_logs(filename)
         return render_template_string("<p>{}</p><br/><br/><p>{}</p>".format(results, shahash))
 
 
-@app.route("/download/<filename>")
+def generate_logs(filename):
+    with open("/usr/src/logs/file.log", "a") as logfile:
+        logfile.write("[+] Filename: {} Time: {}\n".format(filename, strftime("%H:%M:%S"))
+
+
+@ app.route("/download/<filename>")
 def download(filename):
     # To-do: Explain the workerbee request process
     # include docs on urllib.request.urlopen(destination)
