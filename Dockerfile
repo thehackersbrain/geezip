@@ -14,6 +14,7 @@ RUN pip3 install uwsgi
 RUN echo -e "uwsgi\nuwsgi" | adduser uwsgi
 
 RUN mkdir -p /usr/src/logs
+RUN chown uwsgi:uwsgi -R /usr/share/logs
 ADD . /usr/src/logs
 
 EXPOSE 8080
