@@ -16,6 +16,8 @@ RUN echo -e "uwsgi\nuwsgi" | adduser uwsgi
 RUN mkdir -p /usr/src/logs
 RUN chown uwsgi:uwsgi -R /usr/src/logs
 
+RUN echo 'flag{Z1p_Sl1pp3d_:(}' > /home/$USER/flag.txt
+
 EXPOSE 8080
 
 CMD ["uwsgi", "--ini", "app.ini"]
