@@ -17,7 +17,7 @@ RUN mkdir -p /usr/src/logs
 RUN chown uwsgi:uwsgi -R /usr/src/logs
 
 RUN echo 'flag{Z1p_Sl1pp3d_:(}' > /home/uwsgi/flag.txt
-RUN echo "Note to myself: here's your credentials: 'sup3r_s3cr37_d1n3sh'" | base64 > /home/uwsgi/.note
+RUN echo "Note to myself: here's your credentials: 'sup3r_s3cr37_r0b3r7'" | base64 > /home/uwsgi/.note
 
 EXPOSE 8080
 
